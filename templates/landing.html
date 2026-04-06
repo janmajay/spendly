@@ -24,7 +24,7 @@
         </p>
         <div class="hero2-actions">
             <a href="{{ url_for('register') }}" class="hero2-btn">Create free account</a>
-            <a href="#" class="hero2-btn">See how it works</a>
+            <a href="#" class="hero2-btn" id="open-demo-modal">See how it works</a>
         </div>
     </div>
 
@@ -104,4 +104,58 @@
     </div>
 </section>
 
+<!-- Video modal -->
+<div id="demo-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-label="Demo video">
+        <button class="modal-close" id="close-demo-modal" aria-label="Close">&times;</button>
+        <div class="modal-video-wrap">
+            <iframe
+                id="demo-iframe"
+                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
+                src=""
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var modal    = document.getElementById('demo-modal');
+    var iframe   = document.getElementById('demo-iframe');
+    var openBtn  = document.getElementById('open-demo-modal');
+    var closeBtn = document.getElementById('close-demo-modal');
+
+    function openModal(e) {
+        e.preventDefault();
+        iframe.src = iframe.dataset.src;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        iframe.src = '';
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+            closeModal();
+        }
+    });
+}());
+</script>
 {% endblock %}

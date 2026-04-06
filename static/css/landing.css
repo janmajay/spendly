@@ -1,0 +1,216 @@
+/* ------------------------------------------------------------------ */
+/* Hero v2                                                             */
+/* ------------------------------------------------------------------ */
+
+.hero2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem 5rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* Badge */
+.hero2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e8f5f0;
+    color: #2a7a5a;
+    border: 1px solid #b8dfd0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 2rem;
+}
+
+.hero2-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2a9d6e;
+    flex-shrink: 0;
+}
+
+/* Headline */
+.hero2-text {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero2-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+.hero2-title-teal {
+    color: #2a9d6e;
+}
+
+.hero2-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* CTA buttons */
+.hero2-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero2-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.hero2-btn:hover {
+    background: #2a9d6e;
+}
+
+/* ------------------------------------------------------------------ */
+/* App preview frame                                                   */
+/* ------------------------------------------------------------------ */
+
+.app-frame {
+    width: 100%;
+    max-width: 780px;
+    background: #f0ede8;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.07);
+}
+
+.app-frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.75rem 1rem;
+}
+
+.traffic {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.traffic.red    { background: #ed6a5a; }
+.traffic.yellow { background: #f5c842; }
+.traffic.green  { background: #62c462; }
+
+.app-frame-body {
+    background: #f0ede8;
+    padding: 1rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Stat cards */
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-family: var(--font-body);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+}
+
+.stat-sub {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.stat-red  { color: #c0392b; }
+.stat-teal { color: #2a9d6e; }
+.stat-muted { color: var(--ink-faint); }
+
+/* Category bars */
+.app-bars {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.app-bar-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.app-bar-cat {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: right;
+}
+
+.app-bar-track {
+    height: 8px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.app-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .stat-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero2-title {
+        font-size: 2.2rem;
+    }
+}

@@ -1,6 +1,9 @@
 from flask import Flask, render_template
+from database.db import init_db, close_db
 
 app = Flask(__name__)
+app.config['DATABASE'] = 'expense_tracker.db'
+app.teardown_appcontext(close_db)
 
 
 # ------------------------------------------------------------------ #
@@ -62,4 +65,6 @@ def delete_expense(id):
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        init_db()
     app.run(debug=True, port=5001)

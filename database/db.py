@@ -42,6 +42,15 @@ def init_db():
     db.commit()
 
 
+def create_user(name, email, password):
+    db = get_db()
+    db.execute(
+        "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)",
+        (name, email, generate_password_hash(password)),
+    )
+    db.commit()
+
+
 def seed_db():
     db = get_db()
 
